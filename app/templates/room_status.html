@@ -1,0 +1,39 @@
+{% extends 'h.html' %}
+
+{% block body %}
+  {% include 'includes/_sidebar.html' %}
+ 
+<div class="container">
+     
+    <div class="overview-wrap">
+                                  <h1><small> Welcome {{session.name}}</small></h1>
+                                    <a href="/add_student"class="au-btn au-btn-icon au-btn--blue" >
+                                        <i class="zmdi zmdi-arrow-right"></i> Next</a>
+                                </div>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>ROOM NO</th>
+      <th>Student1</th>
+        <th></th>
+      <th>Student2</th>
+        <th></th>
+    </tr>
+    {% for room in rooms %}
+      <tr>
+        <td>{{room.room_no}}</td>
+        <td>{{room.student1}}</td>
+         <td><a href="change_roomstatus1/{{room.room_no}}" class="btn btn-primary pull-right">change status</a></td>
+        <td>{{room.student2}}</td>
+         <td><a href="change_roomstatus2/{{room.room_no}}" class="btn btn-primary pull-right">change status</a></td>
+      
+        <td>
+          
+
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+    
+</div>
+{% endblock %}

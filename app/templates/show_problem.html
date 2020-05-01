@@ -1,0 +1,34 @@
+{% extends 'h.html' %}
+
+{% block body %}
+{% include 'includes/_sidebar.html' %}
+<div class="container-fluid">
+  <h1><small> Welcome {{session.name}}</small></h1>
+
+
+  <table class="table table-striped">
+    <tr>
+      <th>Receipt No:</th>
+      <th>Problem Title</th>
+      <th>Problem</th>
+      <th>Room No</th>
+      <th>Status</th>
+    </tr>
+    {% for prob in problem %}
+      <tr>
+        <td>{{prob.recepit_no}}</td>
+        <td>{{prob.problem_title}}</td>
+        <td>{{prob.problem}}</td>
+        <td>{{prob.room_no}}</td>  
+        <td>{% if prob.status==0%}
+            <I>INCOMPLETE</I>
+            {% else %}
+            <i>COMPLETE</i>
+            {%endif%}
+        </td>
+        <td><a href="change_status/{{prob.recepit_no}}" class="btn btn-primary pull-right">change status</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

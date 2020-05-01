@@ -1,0 +1,7 @@
+Flask
+mysql-connector
+flask-mysqldb
+Flask-WTF
+passlib
+pyyaml
+Flask-SocketIO

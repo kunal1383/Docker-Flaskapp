@@ -1,0 +1,31 @@
+{% extends 'h.html' %}
+
+{% block body %}
+{% include 'includes/_sidebar1.html' %}
+<div class="container-fluid">
+  <h1>Welcome <small>{{session.name}}</small></h1>
+
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>day</th>
+      <th>Breakfast</th>
+      <th>Lunch</th>
+      <th>Dinner</th>
+      <th>Date</th>
+    </tr>
+    {% for menu in menus %}
+      <tr>
+        <td>{{menu.menu_id}}</td>
+        <td>{{menu.day}}</td>
+        <td>{{menu.breakfast}}</td>
+        <td>{{menu.lunch}}</td>
+        <td>{{menu.dinner}}</td>
+        <td>{{menu.date}}</td>
+
+      </tr>
+    {% endfor %}
+  </table>
+    </div>
+{% endblock %}

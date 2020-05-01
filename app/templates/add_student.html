@@ -1,0 +1,24 @@
+{% extends 'h.html' %}
+
+{% block body %}
+ {% include 'includes/_sidebar.html' %}
+<div class="container">
+  <h1>Add Entry</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{ render_field(form.name, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.contact_no, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.room_no, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.recepit_no, class_="form-control") }}
+    </div>
+    <p><input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+</div>
+{% endblock %}

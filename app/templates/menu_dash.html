@@ -1,0 +1,45 @@
+{% extends 'h.html' %}
+
+{% block body %}
+  {% include 'includes/_sidebar.html' %}
+   <div class="container-fluid">
+<div class="overview-wrap">
+                                    <h2 class="title-1">Menu</h2>
+                                    <a href="/menu" class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>add Menu</a>
+                                </div>
+ 
+
+  <hr>
+  <table class="table table-borderless table-striped table-earning">
+    <tr>
+      <th>ID</th>
+      <th>day</th>
+      <th>Breakfast</th>
+      <th>Lunch</th>
+      <th>Dinner</th>
+      <th>Date</th>
+             <th></th>
+        <th></th>
+    </tr>
+    {% for menu in menus %}
+      <tr>
+        <td>{{menu.menu_id}}</td>
+        <td>{{menu.day}}</td>
+        <td>{{menu.breakfast}}</td>
+        <td>{{menu.lunch}}</td>
+        <td>{{menu.dinner}}</td>
+        <td>{{menu.date}}</td>
+       <td><a href="edit_menu/{{menu.menu_id}}" class="btn btn-primary pull-right"><i class="fa fa-pencil" title="Edit"></i></a></td>
+        <td>
+          <form action="{{url_for('delete_menu', id=menu.menu_id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

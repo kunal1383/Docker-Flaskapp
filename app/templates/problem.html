@@ -1,0 +1,21 @@
+{% extends 'h.html' %}
+{% block body %}
+{% include 'includes/_sidebar1.html' %}
+<div class="container-fluid">
+  <h1>Add problem</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{ render_field(form2.room_no, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form2.problem_title, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form2.problem, class_="form-control") }}
+    </div>
+  
+    <p><input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+</div>
+{% endblock %}

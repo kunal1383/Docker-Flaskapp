@@ -1,0 +1,56 @@
+{% extends 'h.html' %}
+    <!-- Main CSS-->
+    <link href="/static/css/theme.css" rel="stylesheet" media="all">
+{% block body %}
+ {% include 'includes/_sidebar.html' %}
+    
+<div class="container-fluid">
+<div class="overview-wrap">
+    <h1><small> Welcome {{session.name}}</small></h1>
+        <form class="form-header" action="" method="POST">
+    <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+    <button class="au-btn--submit" type="submit">
+                <i class="fa fa-search"></i>
+    </button>
+</form>
+    </div>
+
+  <hr>
+  <table class="table table-borderless table-striped table-earning">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Contact No</th>
+      <th>Room No</th>
+      <th>Recepit No</th>
+      <th>Date</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for student in students %}
+      <tr>
+        <td>{{student.student_id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.contact_no}}</td>
+        <td>{{student.room_no}}</td>
+        <td>{{student.recepit_no}}</td>
+        <td>{{student.date}}</td>
+        
+          <td><a href="edit_student/{{student.student_id}}" class="btn btn-primary pull-right"><i class="fa fa-pencil" title="Edit"></i></a></td>
+        <td>
+          <form action="{{url_for('delete_student', id=student.student_id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete"  class="btn btn-danger">
+          </form>
+
+        </td>
+          
+          
+      </tr>
+      
+    {% endfor %}
+  </table>
+    </div>
+
+
+{% endblock %}

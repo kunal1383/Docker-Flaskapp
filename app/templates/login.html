@@ -1,0 +1,24 @@
+{% extends 'h.html' %}
+    <!-- Main CSS-->
+    <link href="/static/css/theme.css" rel="stylesheet" media="all">
+{% block body %}
+  <div class="container-fluid">
+      <div class="overview-wrap">
+                                  <h1>Login</h1>
+                                    <a href="/"class="au-btn au-btn-icon au-btn--blue" >
+                                        <i class=" fa fa-home"></i></a>
+                                </div>
+
+  <form action="" method="POST">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" name="name" class="form-control " value={{request.form.username}}>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" class=" form-control" value={{request.form.password}}>
+    </div>
+    <button type="submit" class=" btn btn-primary">Submit</button>
+  </form>
+          </div>
+{% endblock %}
